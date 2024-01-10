@@ -77,9 +77,9 @@ namespace WindowsFormsApp1
             System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("Тех. составляющая");
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.treeView1 = new System.Windows.Forms.TreeView();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
+            this.treeView1 = new System.Windows.Forms.TreeView();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.SuspendLayout();
@@ -106,21 +106,20 @@ namespace WindowsFormsApp1
             this.tabPage1.Text = "Теория";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
+            // webBrowser1
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(768, 400);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Практика";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.webBrowser1.Location = new System.Drawing.Point(198, 6);
+            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser1.Name = "webBrowser1";
+            this.webBrowser1.Size = new System.Drawing.Size(1004, 582);
+            this.webBrowser1.TabIndex = 1;
+            this.webBrowser1.Url = new System.Uri("", System.UriKind.Relative);
             // 
             // treeView1
             // 
             this.treeView1.Location = new System.Drawing.Point(3, 6);
             this.treeView1.Name = "treeView1";
-            treeNode1.Name = "Node5";
+            treeNode1.Name = "ind_pos";
             treeNode1.Text = "стойки";
             treeNode2.Name = "Node6";
             treeNode2.Text = "основы маскировки";
@@ -130,7 +129,7 @@ namespace WindowsFormsApp1
             treeNode4.Text = "способы удержания";
             treeNode5.Name = "Node21";
             treeNode5.Text = "работа с оружием";
-            treeNode6.Name = "Node0";
+            treeNode6.Name = "ind_exs";
             treeNode6.Text = "Индивидуальная подготовка";
             treeNode7.Name = "Node7";
             treeNode7.Text = "построения";
@@ -179,14 +178,15 @@ namespace WindowsFormsApp1
             this.treeView1.TabIndex = 0;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
-            // webBrowser1
+            // tabPage2
             // 
-            this.webBrowser1.Location = new System.Drawing.Point(198, 6);
-            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(1004, 582);
-            this.webBrowser1.TabIndex = 1;
-            this.webBrowser1.Url = new System.Uri("", System.UriKind.Relative);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1208, 594);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Практика";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 

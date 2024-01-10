@@ -24,7 +24,9 @@ namespace WindowsFormsApp1
 
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
-
+           
+            webBrowser1.Navigate(AppDomain.CurrentDomain.BaseDirectory + "data/htmls/" + treeView1.SelectedNode.Name + ".html");
+            
         }
     }
 }
