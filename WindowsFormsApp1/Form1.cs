@@ -30,62 +30,91 @@ namespace WindowsFormsApp1
             
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         string[] phonetic = { "Alfa", "Bravo", "Charlie", "Delta", "Echo", "Foxtrot", "Golf", "Hotel", "India", "Juliett",
             "Kilo", "Lima", "Mike", "November", "Oscar", "Papa","Quebec", "Romeo","Sierra","Tango","Uniform","Victor","Whiskey","Xray","Yankee","Zulu" };
-        string[] phonetic_2 = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J","K", "L", "M", "N", "O", "P","Q", "R","S","T","U","V","W","X","Y","Z" };
+        char[] phonetic_2 = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' };
 
-        string aft = "";
+
+        // nato to aplhabet
         DateTime strt;
+        int val;
+        char[] refr = new char[60];
         private void button1_Click(object sender, EventArgs e)
         {
-            aft = "";
+            label2.Text = "";
+            val = (int)numericUpDown1.Value;
             button2.Enabled = true;
-            string outp = "";
-            int val = (int)numericUpDown1.Value;
+            string[] outp= new string[val];
             var rand = new Random();
 
             for (int i=0;i<val;i++)
             {
                 int b = rand.Next(26);
+                outp[i] = phonetic[b];
+                refr[i] = phonetic_2[b];
                 
-                if (outp == "")
-                {
-                    outp += phonetic[b];
-                    aft += phonetic_2[b];
-                }
-                else
-                {
-                    outp += ", " + phonetic[b];
-                    aft += phonetic_2[b];
-                }
             }
-            label2.Text = outp;
+            for(int i = 0; i < val; i++)
+            {
+                label2.Text += outp[i] + " ";
+            }
+
             strt = DateTime.Now;
         }
+        
 
         private void button2_Click(object sender, EventArgs e)
         {
+
+            label4.Text = "";
             TimeSpan result = DateTime.Now-strt;
-            string inp = textBox1.Text;
-            if (inp.ToUpper() == aft)
+            char[] inp=new char[textBox1.TextLength];
+
+            string s = textBox1.Text.Replace(" ", "");
+            for (int i = 0; i < val; i++)
             {
-                MessageBox.Show("good "+ result.Seconds.ToString());
+                inp[i] = s.ElementAt(i);
             }
-            else
+            bool is_gd=true;
+            for(int i = 0; i < val; i++)
             {
-                MessageBox.Show("not good");
+                if (char.ToUpper(inp[i]) != refr[i])
+                {
+                    int ii = i+1;
+                    label4.Text += "ошибка в "+ ii + " символе\n";
+                    is_gd = false;
+                }
+            }
+            if (is_gd == true)
+            {
+                label4.Text = "Все правильно";
             }
             
+
         }
+
+        private void CheckEnterKeyPress(object sender, System.Windows.Forms.KeyPressEventArgs e)
+        {/*
+            if (e.KeyChar == (char)Keys.Return)
+
+            {
+                TimeSpan result = DateTime.Now - strt;
+                string inp = textBox1.Text;
+                if (inp.ToUpper() == aft)
+                {
+                    MessageBox.Show("good " + result.Seconds.ToString());
+                }
+                else
+                {
+                    MessageBox.Show("not good");
+                }
+            }*/
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+        //---------------------------------------------------------
     }
 }
